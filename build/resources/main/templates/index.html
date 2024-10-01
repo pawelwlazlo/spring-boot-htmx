@@ -10,8 +10,11 @@
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold mb-6">User List</h1>
+        
+        <div id="user-form" th:replace="fragments/user-form :: userForm"></div>
+        
         <div id="user-list">
-            <table class="w-full bg-white shadow-md rounded">
+            <table class="w-full bg-white shadow-md rounded mt-6">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                         <th class="py-3 px-6 text-left">ID</th>
