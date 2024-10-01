@@ -39,9 +39,9 @@ public class UserController {
                           BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAllProjectedBy());
-            return "fragments/user-form :: userForm";
+            return "index";
         }
         userService.createUser(newUser);
-        return getUserList(model);
+        return "redirect:/";
     }
 }
