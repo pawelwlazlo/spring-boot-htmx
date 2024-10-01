@@ -22,16 +22,10 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/")
-    public String listUsers(Model model) {
+    public String dashboard(Model model) {
         model.addAttribute("users", userRepository.findAllProjectedBy());
         model.addAttribute("newUser", new UserDto());
         return "index";
-    }
-
-    @GetMapping("/users")
-    public String getUserList(Model model) {
-        model.addAttribute("users", userRepository.findAllProjectedBy());
-        return "fragments/user-list :: userList";
     }
 
     @PostMapping("/users")
