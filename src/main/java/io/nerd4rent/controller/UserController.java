@@ -37,6 +37,9 @@ public class UserController {
     @PostMapping("/users")
     public String addUser(@Valid @ModelAttribute("newUser") UserDto newUser, 
                           BindingResult result, Model model) {
+        if (!newUser.getPassword().equals(newUser.getConfirmPassword())) {
+            result.rejectValue("confirmPassword", "error.newUser", "Passwords do not match");
+        }
         if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAllProjectedBy());
             return "index";
